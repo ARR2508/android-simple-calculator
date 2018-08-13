@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,7 +42,14 @@ public class MainActivity extends AppCompatActivity {
 
         insert1 = Double.parseDouble(insert1editText.getText().toString());
         insert2 = Double.parseDouble(insert2editText.getText().toString());
-        answertextView.setText(""+(insert1/insert2));
+
+        if (insert2 == 0){
+
+            Toast.makeText(MainActivity.this,"Number cannot be zero", Toast.LENGTH_LONG).show();
+
+        }else {
+            answertextView.setText("" + (insert1 / insert2));
+        }
     }
 
     public void button_mul(View view) {
